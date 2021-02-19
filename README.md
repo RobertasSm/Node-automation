@@ -22,7 +22,7 @@ Node setup scripts
 # Usage
 
 Please use deploy.sh bash script with these args: ip_address_of_node user_name password
-example: bash deploy.sh 10.0.0.100 rob Pa$$word
+ - example: bash deploy.sh 10.0.0.100 rob Pa$$word
 
 # Notes
 
