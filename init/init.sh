@@ -1,6 +1,5 @@
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get install net-tools software-properties-common python  -y -qq
-sleep 1
 sudo useradd -m -p saJh0hpGCrPhw -b /home -s /bin/bash prov
 if ! $(sudo grep $1 /etc/sudoers);
 then
