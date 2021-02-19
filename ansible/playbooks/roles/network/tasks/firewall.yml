@@ -4,7 +4,6 @@
     chain: INPUT
     protocol: tcp
     destination_port: 22
-    ctstate: NEW
     jump: ACCEPT
     comment: Accept SSH connections
 
@@ -13,6 +12,9 @@
     chain: INPUT
     protocol: tcp
     destination_port: 80
-    ctstate: NEW
     jump: ACCEPT
     comment: Accept http
+
+- name: Save iptables
+  command: sudo iptables-save
+

@@ -1,0 +1,33 @@
+---
+- name: Install required packages
+  apt:
+     name: '{{ items }}'
+     state: present
+     force: yes
+  vars:
+     items:
+     - python-dev
+     - python-virtualenv
+     - python-pip
+     - openjdk-8-jre-headless
+     - libjpeg8-dev
+     - zlib1g-dev
+     - libfreetype6-dev
+     - liblcms2-dev
+     - libwebp-dev
+     - libtiff-dev
+     - tcl-dev
+     - tk-dev
+     - python-tk
+     - redis-server
+     - git
+     - ruby
+
+- name: Creates directory
+  file: "path=/home/{{project}} state=directory"  #creates directory given by project_name
+
+- name: create virtualenv and install django in it
+  pip: "name=django virtualenv=/home/{{project}}/env virtualenv_command=virtualenv"
+
+- name: install a django project
+  command: "/home/{{project}}/env/bin/django-admin.py startproject {{project}} chdir=/home/{{project}}/"

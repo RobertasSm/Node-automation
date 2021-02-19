@@ -6,7 +6,9 @@
   gather_facts: True
   vars:
     - nginx_config: "nginx_django_config.yml"
+    - project: "demo"
   roles:
     - network
     - nginx
-    - posgresql
+    - postgresql
+    - django
