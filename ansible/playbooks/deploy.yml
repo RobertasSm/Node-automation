@@ -6,7 +6,7 @@
   gather_facts: True
   vars:
     - nginx_config: "nginx_django_config.yml"
-    - django_config: "django_custom_config.yml"
   roles:
     - network
     - nginx
+    - posgresql

@@ -1,0 +1,8 @@
+- name: Install PostgreSQL
+  apt: name=postgresql state=latest
+  tags: PostgreSQL
+
+- name: Start PostgreSQL
+  service:
+    name: postgresql
+    state: started
