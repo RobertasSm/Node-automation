@@ -16,7 +16,5 @@ Node setup scripts
 
 # Requirements for deployment
 
-1. Ansible 
+1. Ansible
 2. sshpass
-
-
