@@ -18,3 +18,12 @@ Node setup scripts
 
 1. Ansible 2.9.6+
 2. sshpass
+
+# Usage
+
+Please use deploy.sh bash script with these args: ip_address_of_node user_name password
+example: bash deploy.sh 10.0.0.100 rob Pa$$word
+
+# Notes
+
+Given short time I did my best on his assigment. Unfortunatelly it's only ~50% compleate. 
