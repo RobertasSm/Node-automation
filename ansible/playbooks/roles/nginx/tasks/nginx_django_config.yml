@@ -1,0 +1,35 @@
+---
+- name: Disabling default site..
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /etc/nginx/sites-available/default
+    - /etc/nginx/sites-enabled/default
+  notify: reload nginx
+
+- name: Copying site config...
+  copy:
+     src: "files/django_config/{{ item }}"
+     dest: /etc/nginx/sites-available/
+  with_items:
+    - django
+  notify: reload nginx
+
+- name: Copying nginx config...
+  copy:
+     src: "files/django_config/{{ item }}"
+     dest: /etc/nginx/
+  with_items:
+    - nginx.conf
+  notify: restart nginx
+
+
+- name: Making symlinks of new config...
+  file:
+    src: "/etc/nginx/sites-available/{{item}}"
+    dest: "/etc/nginx/sites-enabled/{{item}}"
+    state: link
+  with_items:
+    - django
+  notify: reload nginx

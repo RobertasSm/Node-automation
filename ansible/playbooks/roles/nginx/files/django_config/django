@@ -1,0 +1,23 @@
+# django front
+#
+upstream front {
+        server 127.0.0.1:8000;
+}
+
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        server_name front.host.com;
+
+        location /status {
+        stub_status;
+        allow 127.0.0.1;        #only allow requests from localhost
+        deny all;               #deny all other hosts
+        }
+
+        location / {
+         proxy_pass http://front;
+        }
+}

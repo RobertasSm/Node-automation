@@ -1,0 +1,10 @@
+---
+- name: Installing Nginx...
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    name: nginx
+    state: present
+
+- include: "{{nginx_config}}"
+  when: nginx_config is defined

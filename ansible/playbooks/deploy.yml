@@ -9,3 +9,4 @@
     - django_config: "django_custom_config.yml"
   roles:
     - network
+    - nginx
