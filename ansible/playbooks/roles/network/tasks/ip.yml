@@ -1,0 +1,7 @@
+---
+- name: Copy network config defaults
+  copy:
+    src: files/50-cloud-init.yaml
+    dest: /etc/netplan/50-cloud-init.yaml
+    backup: yes
+
